@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="GdaKTmXtrWsbUdkrxP9JjL">
+<head data-page-node-id="HEvlLZJwedq1NcxfWT7wEM">
+<meta charset="UTF-8" data-page-node-id="9tETHHh0dl1584I8UCsvTs">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="o57A2CdBGikWwyEgvwVqBl">
+<title>兰州 2026 → 2036 · 用数据与 AI 推演一座城市的十年</title>
+<style>
+  :root{
+    --bg:#f6f5f1;--panel:#fff;--line:#e4e2da;--ink:#23211d;--sub:#6b685f;
+    --accent:#14426b;--deep:#0c2d47;--teal:#0f7a5f;--red:#c0392b;--amber:#b57a10;--soft:#eff2f7;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;background:var(--bg);color:var(--ink);
+    -webkit-font-smoothing:antialiased;font-size:15px;line-height:1.75}
+  .top{position:sticky;top:0;z-index:50;height:54px;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);display:flex;align-items:center;gap:14px;padding:0 24px}
+  .brand{font-weight:800;font-size:17px;white-space:nowrap}.brand em{font-style:normal;color:var(--accent)}
+  .nav{margin-left:auto;display:flex;gap:4px;font-size:12.5px;color:var(--sub)}
+  .nav a{padding:6px 12px;border-radius:20px;background:transparent;text-decoration:none;color:var(--sub);white-space:nowrap;transition:.15s}
+  .nav a:hover{background:var(--soft);color:var(--accent)}
+
+  /* ---------- 封面（含城市天际线配图） ---------- */
+  .cover{min-height:92vh;display:flex;flex-direction:column;justify-content:center;
+    background:linear-gradient(180deg,rgba(8,24,41,.88),rgba(12,45,71,.82)),url('assets/city-skyline.jpg') center/cover no-repeat;
+    color:#fff;padding:60px 8vw;position:relative;overflow:hidden}
+  .cover::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,20,35,.72),rgba(6,20,35,.20) 45%,rgba(6,20,35,.40));z-index:0}
+  .cover>*{position:relative;z-index:1}
+  .cover .kicker{font-size:13px;letter-spacing:4px;color:#8fd0b5;margin-bottom:18px;font-weight:600}
+  .cover h1{font-size:clamp(36px,6.5vw,66px);font-weight:900;line-height:1.12;letter-spacing:1px;text-shadow:0 2px 18px rgba(0,0,0,.45)}
+  .cover h1 em{font-style:normal;color:#ffd98c}
+  .cover .sub{margin-top:22px;font-size:clamp(15px,2vw,19px);color:#e2eaf0;max-width:700px;font-weight:400}
+  .cover .meta{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
+  .pill{border:1px solid rgba(255,255,255,.35);padding:7px 16px;border-radius:30px;font-size:13px;color:#eaf1f6;background:rgba(255,255,255,.06)}
+  .cover .scrollhint{position:absolute;bottom:30px;left:6vw;font-size:12px;color:#9fc4d6;letter-spacing:2px;z-index:1}
+  .cover .scrollhint::after{content:"↓";display:inline-block;margin-left:6px;animation:d 1.6s infinite}
+  @keyframes d{50%{transform:translateY(5px)}}
+
+  /* ---------- 板块通用 ---------- */
+  section.block{padding:72px 6vw 44px;max-width:1180px;margin:0 auto}
+  .sec-head{margin-bottom:26px}
+  .sec-no{font-size:13px;color:var(--teal);font-weight:700;letter-spacing:3px}
+  .sec-title{font-size:clamp(22px,3vw,30px);font-weight:900;margin-top:4px;line-height:1.2}
+  .sec-sub{font-size:14px;color:var(--sub);margin-top:10px;max-width:780px}
+
+  /* ---------- 数据地基 ---------- */
+  .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:8px}
+  .pillar{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 20px 16px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  .pillar h3{font-size:15px;font-weight:800;margin-bottom:6px;display:flex;align-items:center;gap:9px}
+  .pillar h3 span{width:10px;height:10px;border-radius:3px;background:var(--accent);display:inline-block}
+  .pillar .src{font-size:11.5px;color:var(--teal);margin-bottom:10px;font-weight:600}
+  .pillar ul{list-style:none}
+  .pillar li{font-size:13PX;color:var(--ink);border-top:1px dashed var(--line);padding:7px 2px;display:flex;justify-content:space-between;gap:10px}
+  .pillar li b{font-size:13.5px}
+  .pillar li small{color:var(--sub);font-weight:500;white-space:nowrap}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:30px 0 8px}
+  .kpi{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  .kpi .v{font-size:clamp(22px,3vw,30px);font-weight:900;color:var(--accent);line-height:1.05}
+  .kpi .v small{font-size:13px;font-weight:600;color:var(--sub)}
+  .kpi .l{font-size:12px;color:var(--sub);margin-top:5px;font-weight:600}
+  .kpi .chg{font-size:12px;font-weight:700;margin-top:2px}
+  .chg.up{color:var(--teal)}.chg.down{color:var(--red)}
+  .note{font-size:12px;color:#8a7a2e;background:#fcf7e4;border:1px dashed #e2d496;border-radius:10px;padding:11px 15px;margin-top:22px;line-height:1.7}
+
+  /* ---------- 图文卡片 ---------- */
+  figure.photo{margin:26px 0;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--panel);box-shadow:0 3px 12px rgba(0,0,0,.06)}
+  figure.photo img{width:100%;display:block;max-height:420px;object-fit:cover}
+  figure.photo figcaption{padding:11px 16px;font-size:12.5px;color:var(--sub);border-top:1px solid var(--line);background:#fbfaf7}
+  figure.photo figcaption b{color:var(--accent)}
+  .duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+  figure.photo.tall img{max-height:300px}
+  figure.photo.tall figcaption{font-size:12px}
+
+  /* ---------- 明细表（数据卡） ---------- */
+  .dtable{margin:26px 0 4px;background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .dtable summary{cursor:pointer;padding:16px 20px;font-weight:800;font-size:15px;color:var(--accent);background:#fbfaf7;list-style:none;display:flex;justify-content:space-between;align-items:center}
+  .dtable summary .cnt{font-size:12px;color:var(--sub);font-weight:600}
+  .dtable[open] summary{border-bottom:1px solid var(--line)}
+  .dtable .wrap{overflow-x:auto;padding:6px 4px}
+  table.dat{width:100%;border-collapse:collapse;font-size:12.5px}
+  table.dat th{background:var(--soft);color:var(--accent);font-weight:800;padding:9px 10px;text-align:left;white-space:nowrap;border-bottom:1px solid var(--line)}
+  table.dat td{padding:8px 10px;border-bottom:1px solid #f0efe9;vertical-align:top}
+  table.dat tr:hover td{background:#f7f9fb}
+  table.dat td.ind{font-weight:800;color:var(--ink);white-space:nowrap}
+  table.dat td.val{font-weight:700;color:var(--accent);white-space:nowrap}
+  table.dat td.conf{white-space:nowrap}
+  .badge{padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700}
+  .badge.h{background:#e2f2ea;color:#0f7a5f}.badge.m{background:#f5efdc;color:#b57a10}
+
+  /* ---------- 与 AI 的对话 ---------- */
+  .aiwrap{background:var(--panel);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 4px 18px rgba(12,45,71,.06)}
+  .aihead{background:linear-gradient(120deg,var(--deep),var(--accent));color:#fff;padding:16px 22px;display:flex;align-items:center;gap:12px}
+  .aihead .av{width:38px;height:38px;border-radius:50%;background:#1c5f93;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+  .aihead .who{font-weight:800;font-size:15px}
+  .aihead .tag{font-size:11px;color:#8fd0b5;background:rgba(255,255,255,.12);padding:3px 10px;border-radius:30px}
+  .aihead .live{margin-left:auto;font-size:11px;color:#8fd0b5;display:flex;align-items:center;gap:6px}
+  .aihead .live i{width:8px;height:8px;border-radius:50%;background:#4ecb8d;animation:blink 1.4s infinite}
+  @keyframes blink{50%{opacity:.25}}
+  .chatbox{max-height:540px;overflow-y:auto;padding:20px 22px;background:#fbfaf7;display:flex;flex-direction:column;gap:14px}
+  .mmsg{max-width:90%;display:flex;flex-direction:column}
+  .mmsg .who{font-size:11px;color:var(--sub);margin-bottom:3px;font-weight:700}
+  .mmsg .bub{padding:11px 14px;line-height:1.8;font-size:13.5px;border-radius:15px;white-space:pre-wrap;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+  .mmsg.user{align-self:flex-end}
+  .mmsg.user .bub{background:var(--accent);color:#fff;border-top-right-radius:4px}
+  .mmsg.ai{align-self:flex-start;align-items:flex-start}
+  .mmsg.ai .bub{background:#fff;border:1px solid var(--line);border-top-left-radius:4px;color:var(--ink)}
+  .mmsg.ai .bub b{color:var(--accent)}
+  .mmsg.ai .proof{display:inline-block;margin-top:8px;font-size:11px;color:var(--teal);cursor:pointer;border-bottom:1px dashed var(--teal)}
+  .proofbody{display:none;margin-top:8px;font-size:12px;color:var(--sub);background:#f0f7f4;border-radius:8px;padding:9px 12px;line-height:1.7}
+  .proofbody.open{display:block}
+  .typing{display:inline-flex;gap:4px;padding:4px 2px}
+  .typing i{width:7px;height:7px;border-radius:50%;background:#aeb8c6;animation:t2 1s infinite}
+  .typing i:nth-child(2){animation-delay:.18s}.typing i:nth-child(3){animation-delay:.36s}
+  @keyframes t2{0%,80%,100%{opacity:.2;transform:translateY(0)}40%{opacity:1;transform:translateY(-3px)}}
+  .quick{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;padding:14px 22px;background:#fff;border-top:1px solid var(--line)}
+  .qbtn{background:var(--soft);border:1px solid var(--line);color:var(--accent);font-size:12.5px;padding:10px 12px;border-radius:12px;cursor:pointer;text-align:left;font-weight:600;transition:.15s;display:flex;align-items:center;gap:7px}
+  .qbtn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .qbtn .ic{font-size:15px}
+  .askbar{display:flex;gap:10px;padding:14px 22px;background:#fff;border-top:1px solid var(--line)}
+  .askbar input{flex:1;border:1px solid var(--line);border-radius:12px;padding:11px 14px;font-size:13.5px;outline:none;color:var(--ink)}
+  .askbar input:focus{border-color:var(--accent)}
+  .askbar button{background:var(--accent);color:#fff;border:none;border-radius:12px;padding:0 20px;font-size:13px;font-weight:700;cursor:pointer}
+  .askbar button:hover{background:var(--deep)}
+
+  /* ---------- 三大方向 ---------- */
+  .dirs{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px}
+  .dir{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:0;box-shadow:0 2px 6px rgba(0,0,0,.05);overflow:hidden;display:flex;flex-direction:column}
+  .dir .ph{height:176px;overflow:hidden;display:block;position:relative}
+  .dir .ph img{width:100%;height:100%;object-fit:cover;display:block}
+  .dir .ph .cap{position:absolute;left:0;bottom:0;right:0;padding:8px 12px;font-size:11px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.62))}
+  .dir .inner{padding:18px 22px 20px;display:flex;flex-direction:column;flex:1}
+  .dir .no{font-size:12px;letter-spacing:2px;color:var(--amber);font-weight:800}
+  .dir h3{font-size:20px;font-weight:900;margin:4px 0 6px}
+  .dir .move{font-size:14.5px;font-weight:800;color:var(--accent);margin-bottom:8px}
+  .dir .move .arrow{color:var(--amber)}
+  .dir p{font-size:13.5px;color:var(--sub)}
+  .dir .q3{margin-top:12px;border-top:1px dashed var(--line);padding-top:10px;display:flex;flex-direction:column;gap:7px}
+  .dir .q3 .q{font-size:12.5px;color:var(--ink)}
+  .dir .q3 .q b{color:var(--teal)}
+  .chartbox{width:100%;margin-top:8px;background:#fcfbf7;border-radius:10px;border:1px solid var(--line)}
+
+  /* ---------- 市民的一天 ---------- */
+  .dayline{margin-top:8px}
+  .dayrow{display:grid;grid-template-columns:110px 1fr 1fr;gap:18px;padding:18px 24px;
+    background:var(--panel);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;align-items:start;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  .dayrow .time{font-weight:900;color:var(--accent);font-size:17px;white-space:nowrap}
+  .dayrow .what{font-weight:700;font-size:14.5px;color:var(--ink)}
+  .dayrow .flow{margin-top:9px;background:#f6f4ec;border:1px solid var(--line);border-radius:10px;padding:10px 12px;border-left:3px solid var(--teal)}
+  .dayrow .flow .fl{font-size:12px;line-height:1.65;color:var(--sub)}
+  .dayrow .flow .fl b{color:var(--teal);font-weight:700}
+  .dayrow .flow .fl .tag{display:inline-block;font-size:10.5px;font-weight:800;color:#fff;background:var(--teal);border-radius:4px;padding:1px 6px;margin-right:4px;vertical-align:1px}
+  .dayrow .flow .fl .tag.l{background:var(--accent)}
+  .dayrow .back{font-size:12.5px;color:var(--sub);border-top:1px dashed var(--line);padding-top:8px;margin-top:8px}
+  .dayrow .tech{font-size:13px;color:var(--teal);font-weight:700}
+
+  /* ---------- 风险 ---------- */
+  .risks{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+  .risk{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
+  .risk .nm{font-size:16px;font-weight:800;color:var(--red);display:flex;align-items:center;gap:8px}
+  .risk .nm::before{content:"!";width:20px;height:20px;border-radius:50%;background:var(--red);color:#fff;font-size:13px;display:inline-flex;align-items:center;justify-content:center}
+  .risk p{font-size:13px;color:var(--sub);margin-top:8px}
+  .risk .short{margin-top:12px;font-size:12.5px;color:var(--teal);background:#eef7f3;border-radius:8px;padding:8px 11px}
+
+  footer{text-align:center;padding:46px 20px;color:var(--sub);font-size:12.5px;border-top:1px solid var(--line);background:#fff}
+  footer b{color:var(--accent)}
+
+  :root ::selection{background:#cfe3f5}
+  @media(max-width:760px){
+    .nav a{font-size:11px;padding:5px 8px}
+    .dayrow{grid-template-columns:1fr;gap:6px}
+    section.block{padding:52px 20px 30px}
+    .dir .phimg{height:150px}
+  }
+  /* ===== 等比缩放工具 ===== */
+  .zoombar{position:fixed;right:16px;bottom:16px;z-index:9999;display:flex;align-items:center;gap:2px;
+    background:rgba(15,42,74,.92);border:1px solid rgba(255,255,255,.28);border-radius:999px;
+    padding:6px 10px;box-shadow:0 6px 18px rgba(0,0,0,.35);backdrop-filter:blur(4px)}
+  .zoombar button{border:none;background:transparent;color:#fff;font-size:16px;line-height:1;
+    width:30px;height:30px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center}
+  .zoombar button:hover{background:rgba(255,255,255,.18)}
+  .zoombar .zlabel{color:#cfe0ee;font-size:12px;font-weight:700;min-width:46px;text-align:center;cursor:default;user-select:none}
+  .zoombar .fit{width:auto;padding:0 12px;border-radius:15px;font-size:13px;font-weight:700;min-width:auto}
+  .zoombar .fit:hover{background:rgba(143,208,181,.25)}
+</style>
+</head>
+<body data-page-node-id="1GmaFh0OfBUfxteD3d2STk">
+
+<!-- 等比缩放控制条 -->
+<div class="zoombar" id="zoombar" title="页面等比例缩放">
+  <button title="缩小" data-z="-15">−</button>
+  <span class="zlabel" id="zlabel">100%</span>
+  <button title="放大" data-z="15">+</button>
+  <button class="fit" title="按窗口宽度等比铺满" id="zfit">铺满</button>
+</div>
+
+<!-- ======================= 顶部导航 ======================= -->
+<div class="top" data-page-node-id="e1ymDG4RvwyBjq9VzBUD4C">
+  <div class="brand" data-page-node-id="g19JzMUpIKjWBttK5rseFp">兰州 <em data-page-node-id="8uwYsuAkSq2sQPBZ7qdVQ6">2026 → 2036</em></div>
+  <div class="nav" data-page-node-id="LFqPLZctzdm2GvRvAmiaPO">
+    <a href="#data" data-page-node-id="DwgQ9ulQphnjSvOIOJubqe">数据地基</a>
+    <a href="#ai" data-page-node-id="4hhRYaKbd18iVXDsZ3y9i3">与AI对话</a>
+    <a href="#dirs" data-page-node-id="QGAq5iML5lAvtP2F9p28F0">三大方向</a>
+    <a href="#day" data-page-node-id="rofPPq5ndxj2aFnQZMzkt8">市民的一天</a>
+    <a href="#risk" data-page-node-id="DV3qe2o2yutoR5gnTKibuZ">风险挑战</a>
+  </div>
+</div>
+
+<!-- ======================= 封面 ======================= -->
+<div class="cover" data-page-node-id="x65GNwk25OWbLqf47lpJO6">
+  <div class="kicker" data-page-node-id="PWWKz6cBUIJfN7DuFpymp8">数据 · 推演 · 预见</div>
+  <h1 data-page-node-id="SjtKgRWfYrdJJ3NrHOnI8Q">兰州 <em data-page-node-id="TycLAUN8yHYYwjDPv6GN5m">2026 → 2036</em></h1>
+  <div class="sub" data-page-node-id="QvS4Mf8ZhlPMXqwSwq2tKq">用三层真实数据做地基，借 AI 推演一座西部省会城市的十年——人口在哪里、钱往哪里走、普通市民的一天会变成什么样。</div>
+  <div class="meta" data-page-node-id="NFZaZjdkpvC0oKaZaNGWWl">
+    <div class="pill" data-page-node-id="C4a8IzpUVFWhpBqUQZ4wn8">基年数据 · 2025</div>
+    <div class="pill" data-page-node-id="mqpAD5uSskGhAVJoBFgLZC">三层 25 张数据卡</div>
+    <div class="pill" data-page-node-id="bmHEIPN1GyAFSInFxuiwTf">三大发展方向</div>
+    <div class="pill" data-page-node-id="xcFy8C8U8TK2pmdQpeXxEH">风险与挑战</div>
+  </div>
+  <div class="scrollhint" data-page-node-id="v9hUqR27y1nWUkJkdmicwN">向下 · 揭开十年</div>
+</div>
+
+<!-- ======================= 数据地基 ======================= -->
+<section class="block" id="data" data-page-node-id="fNzZcmYvl7XWsIDScsnn8C">
+  <div class="sec-head" data-page-node-id="NKWQGK1m8THZx469ydwtDv">
+    <div class="sec-no" data-page-node-id="vkAMDAoUb0C0SH3KStFDuZ">板块 01</div>
+    <div class="sec-title" data-page-node-id="J7DBpP0aCTXRLjAl1RuNAK">数据地基 · 真实底数，从何而来</div>
+    <div class="sec-sub" data-page-node-id="qKJlVcAfcqRnyP53jpqRw2">一切推演都建立在可核验的真实数据上。三层 25 张数据卡，每层一条权威总出处——先看四个最关键的总量，再逐条下钻到每一个人口、产业、生态与算力指标。</div>
+  </div>
+
+  <div class="kpis" data-page-node-id="ahB5s6VWvqVdYIt7XZQxBK">
+    <div class="kpi" data-page-node-id="0LbgxnSr70JEDX2dB85YOM"><div class="v" data-page-node-id="f1DznIkM8HDnnMSUyJaLfN">445.14<small data-page-node-id="jJmecNPLZSjdu5pBaQ6q0Z"> 万</small></div><div class="l" data-page-node-id="1MALVgbHVxrOoPE5g1HMmq">常住人口 · 2025</div><div class="chg down" data-page-node-id="0FoDb9XeDFCCCMp0fxcO8p">自然增长 −4.04‰</div></div>
+    <div class="kpi" data-page-node-id="EFTBvIPjc3rwQCsgirsRcA"><div class="v" data-page-node-id="pYx8DoBNaYSzn123s9rvsq">3903.6<small data-page-node-id="VMWC5w9aaGyMcJfkNiFODY"> 亿</small></div><div class="l" data-page-node-id="Axe4xP7JYGzUB5mOHZGCSB">GDP · 2025</div><div class="chg up" data-page-node-id="Dbo7CXgNP9yUqBlhwAWf92">+5.5%</div></div>
+    <div class="kpi" data-page-node-id="DCtMS6dvFHGTimURcl1q5Z"><div class="v" data-page-node-id="lAJ7dUeLw0B1ifG0XpE140">65.56<small data-page-node-id="DyBwJYWygPdoI66BVDomxb"> %</small></div><div class="l" data-page-node-id="kVPOoitjVXAii8JfQpwR3H">第三产业占比</div><div class="chg up" data-page-node-id="iFrZ2Ka5BvKpXOsy1cTzr3">服务业主导</div></div>
+    <div class="kpi" data-page-node-id="vx8CJXayXhdzR52kOsk3pY"><div class="v" data-page-node-id="hAfPMBOCYOjOqfJR2kWT1f">23.32<small data-page-node-id="oknODtu1KfcMpNiIhEqUHt"> %</small></div><div class="l" data-page-node-id="0RxOkrpgZY2IwKBzH5N2ax">60+ 人口占比</div><div class="chg down" data-page-node-id="eh5YGlTITmoR2rD7KD3fYa">老龄化提速</div></div>
+    <div class="kpi" data-page-node-id="GTuhGTC0O25jIoQIon7yW0"><div class="v" data-page-node-id="kWaulSpZYdVKIEmqoIWHVz">1.29<small data-page-node-id="fl4A3UXMStW0A5REaPxcaf"> 亿</small></div><div class="l" data-page-node-id="LA59ypALvBomM5jn6KPb3p">游客人次 · 2025</div><div class="chg up" data-page-node-id="VnvZBpPonRnA7NO7SLK0IZ">+17.3%</div></div>
+    <div class="kpi" data-page-node-id="PRC2f9xcXFz8kqeIMnhiZc"><div class="v" data-page-node-id="3XaHFAE6deKzLDv7Flb7Jv">4.9<small data-page-node-id="LpOVjx3RIzGEP1IE9BSxZx"> 万架</small></div><div class="l" data-page-node-id="wxoKIxsti0ic7fFkuFjzgv">标准机架 · 2025</div><div class="chg up" data-page-node-id="QVqr3PMZ6pJ0srkK7ALd3N">东数西算枢纽</div></div>
+  </div>
+
+  <div class="pillars" data-page-node-id="QS5aBHYZoeNulQHrd5IWgX">
+    <div class="pillar" data-page-node-id="TlXMxTeCNcXb1rlpiuY6mS">
+      <h3 data-page-node-id="9Sgb7rPegCJM2GLrrkMaJB"><span style="background:#14426b" data-page-node-id="cViN5VSxRfI0juSPiwFR8E"></span>① 官方统计</h3>
+      <div class="src" data-page-node-id="jHi8yOoCqzFFFprcSTqTEL">兰州市 2025 统计公报 · 政府工作报告 · 民政局</div>
+      <ul data-page-node-id="HW7FQtVxdsXjCAwSLxaScw">
+        <li data-page-node-id="jOjpRRyskzoBlG380h6y1v"><b data-page-node-id="C9aiFpgBdCwdCMajGSVB1z">常住人口</b><small data-page-node-id="ycR19KDu5LCoEuLEQ0jlwO">445.14 万</small></li>
+        <li data-page-node-id="nn5KXDjRMviwGVXC1ywDGK"><b data-page-node-id="r6DzIEFDG5ze7xM7WlIXrY">地区生产总值</b><small data-page-node-id="ALhnnHMTqVC5jShU58G9L3">3903.61 亿</small></li>
+        <li data-page-node-id="5MLeUCwRevjZVD6AOrS5bi"><b data-page-node-id="M14XvZx3QfTMWqcIiaCgg3">自然增长率</b><small data-page-node-id="aAVZV6ODkxXmkdUZCCrA5h">−4.04‰</small></li>
+        <li data-page-node-id="xx7oBPx06ohEvsTIrueR30"><b data-page-node-id="A99hYfbjZGIAHtCqBxzHhb">第三产业占比</b><small data-page-node-id="bmNt1WWgolK364DP5owoHS">65.56%</small></li>
+        <li data-page-node-id="95SRtqXRkePjeStEHB2aaH"><b data-page-node-id="ididvYvTDrbtfQLmlAzuxQ">60+ 老年人口</b><small data-page-node-id="u5aj2Oug74iapnEhvXBAHH">103 万 / 23%</small></li>
+        <li data-page-node-id="gkQpyMpCpAHRRxUJ7pSDD1"><b data-page-node-id="9GFKZgR0V6f2VYSZ5Qj31f">幸福食堂</b><small data-page-node-id="fE5tfk2gewItUGgLbMzGLt">132 个 · 月供 35 万</small></li>
+        <li data-page-node-id="VGnC4yx94A9E6RvcBWFIXV"><b data-page-node-id="kZK9lRvzdoXwLt5YkLlSEj">入境游客</b><small data-page-node-id="OQfKmUyX6wfYeP6gXbsXtq">+54.5%</small></li>
+      </ul>
+    </div>
+    <div class="pillar" data-page-node-id="glbB20ddIvmDSXYL1A4deE">
+      <h3 data-page-node-id="noXlM2EGUCZCCqVSQGg86H"><span style="background:var(--teal)" data-page-node-id="1xGTagVOnDm0e7xfE80Bas"></span>② 遥感与传感器</h3>
+      <div class="src" data-page-node-id="CPgrLDqIWGql51y6PW56FR">2025 生态环境公报 · 市政传感器 · 交通客流</div>
+      <ul data-page-node-id="L1whpdPehxTaxvGukkVuhI">
+        <li data-page-node-id="pzbVqBTrmkeFi90fP7CVWd"><b data-page-node-id="5Ow2C5QyfKJxas7HnqqDGn">空气质量优良天数</b><small data-page-node-id="L1e5tgZcOpX3eKzjP9yiw2">312 天</small></li>
+        <li data-page-node-id="J3i2e0gAKcBGLnSEfX1Bch"><b data-page-node-id="KRSS98rDS0SSniCLGGwVeC">PM2.5 年均</b><small data-page-node-id="Iveqm53wcqBksShWhVybUz">34.88</small></li>
+        <li data-page-node-id="DrKtltQfLeezoyuBAuKlhw"><b data-page-node-id="4vLkjn8SGYw7vD9wyAsB5S">黄河水质达标</b><small data-page-node-id="puz3MQgbEBCds9k0AKrCId">100%</small></li>
+        <li data-page-node-id="10crDAZkjRbKtIJWkIPr1Y"><b data-page-node-id="JEeVt8HCESWA9Fts9NZzsE">建成区面积</b><small data-page-node-id="gFXOH9sVJWeMtDA4uLFJce">417.3 km²</small></li>
+        <li data-page-node-id="hEgDT6h6DSn6otrVfxTm5M"><b data-page-node-id="3AIHyPY4fJyuBFu0cUmVgH">水质自动监测站</b><small data-page-node-id="b9KMiJoMrjWJKDBpBvhTgh">19 座</small></li>
+        <li data-page-node-id="vJ2GOl1PltvMS6yeyDN42E"><b data-page-node-id="hyqCEQAWKNs8Kp556zCb1b">轨道日均客流</b><small data-page-node-id="mX5QjlVLZM56aTIbXN6sjq">约 40 万人次</small></li>
+        <li data-page-node-id="WDWVvOrSdF8cicrXoFQLek"><b data-page-node-id="BemfnuZVC9CP6FKu1gGsaW">人均公园绿地</b><small data-page-node-id="i0Lre1tUNeiwFQK4oMcKPV">12.2 m²</small></li>
+      </ul>
+    </div>
+    <div class="pillar" data-page-node-id="HJlqBBa3EK7kFl6ELugNnQ">
+      <h3 data-page-node-id="ZYSNXCvnxCTmNSk2NcpVDF"><span style="background:var(--amber)" data-page-node-id="iJ0JUMQCEbJDZo9p1WCV6L"></span>③ 社交位置与算力</h3>
+      <div class="src" data-page-node-id="GP2nwyYyZpqBG9GEMzCv4w">数字经济大会口径 · 算力枢纽</div>
+      <ul data-page-node-id="zJl8TfFlGbnc6GZ8hoPcW8">
+        <li data-page-node-id="nx9IqHpMW2XEgZEpsFumPv"><b data-page-node-id="W83pWPKoxJdzEVsLdj0wDo">数字经济规模</b><small data-page-node-id="MKhOyOCGC0sj2aR3HKQ2pW">1001 亿</small></li>
+        <li data-page-node-id="lRztQmbN8zCJJG0tSRbADS"><b data-page-node-id="FZM4xTuGCbLew2yvVyunrq">数据中心机架</b><small data-page-node-id="Y1Gep15ZM4SPUfio6GUFyR">4.9 万架</small></li>
+        <li data-page-node-id="9mYAAWkLMKIVCG3QH2ahud"><b data-page-node-id="EGn9qgewQvSCFsXxp1Tjzq">信息软件业增速</b><small data-page-node-id="NFfPqls4GGCKRlLStgOBK7">+15.2%</small></li>
+        <li data-page-node-id="XOxbZpcYV0iAlQiODH0sZg"><b data-page-node-id="yNJp63uJ07YZ7iqxhubJlj">数据中心数量</b><small data-page-node-id="mlodGlRHxjyJqjfqYRNkOw">32 个</small></li>
+        <li data-page-node-id="h9DzSh8ajVjLfXCEQyC1dm"><b data-page-node-id="AX1cLNbPQgPAPftzNmiQmG">5G 基站</b><small data-page-node-id="Cm25M6fmu2XlFChAi9PAR5">2.32 万个</small></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 图文：城市 + 交通 -->
+  <div class="duo" data-page-node-id="qjXAgsp5IZFoN7kig2ugvm">
+    <figure class="photo tall" data-page-node-id="peCV6fejj1l1I4fG6bCwuV">
+      <img src="assets/lanzhou-railway.jpg" alt="兰州火车站·客运枢纽" data-page-node-id="gX1x5UBEyiqzwVPQJuFDvA">
+      <figcaption data-page-node-id="xoYJqXyevvOAUvEjiMqYmM"><b data-page-node-id="g0ufeROqBG2gI1fAL59b6F">区位与活力</b> · 兰州站作为西北铁路枢纽，是中欧班列与国际通道的人流、物流集散地——这也是"通道经济"方向的数据可见载体。</figcaption>
+    </figure>
+    <figure class="photo tall" data-page-node-id="Jgf6HUvSBj6oYwgCKAW8TX">
+      <img src="assets/danxia-landform.jpg" alt="陇中红砂地貌" data-page-node-id="vaIP78CWgnybW9NONS7F3G">
+      <figcaption data-page-node-id="reo7V21kkK2rb4ef9w83Yr"><b data-page-node-id="ejB7q6tUbmlhMNR9544LWM">地理与生态</b> · 黄河穿城而过，周边红砂沟壑地貌。遥感与传感器数据，正是在这类山、水、城交错的空间里被持续采集。</figcaption>
+    </figure>
+  </div>
+
+  <!-- 明细表：25 张数据卡 -->
+  <details class="dtable" data-page-node-id="vWIznsF3oK2IHOLSMygBHF">
+    <summary data-page-node-id="GJfs79qutFKbAEs0991pkH">展开全部 25 张数据卡明细 <span class="cnt" data-page-node-id="FZXkkm2RMbTkuw1Q8yEg1a">口径 / 年份 / 来源 / 置信度 / 用在哪一步</span></summary>
+    <div class="wrap" data-page-node-id="TpprjcgoSJIqcKFxZz00Y0">
+      <table data-page-node-id="pf9jisGoKFDY5wxMweh3sR">
+        <thead data-page-node-id="idGdXkW3x8sx0WGEgOtCk1"><tr data-page-node-id="eXHEedG826his7U77qTMQc"><th data-page-node-id="RHVnxJjuWh3U1C6M0lvGo9">指标</th><th data-page-node-id="kohQngMomOlJ2ZyBVr2nBC">数值</th><th data-page-node-id="v49F3VZycCzBMghqhJU7zk">口径</th><th data-page-node-id="D1mj21Myax0f2IYBFVNPfH">来源</th><th data-page-node-id="W55G2OxVkkmvEYwXXGVOIB">置信</th><th data-page-node-id="RHjUpm9lmzYhy2j0petgGP">用于推演</th></tr></thead>
+        <tbody id="cardRows" data-page-node-id="jMHtnq7v2v76qqweHgoyeA"></tbody>
+      </table>
+    </div>
+  </details>
+
+  <div class="note" data-page-node-id="Mi2rkwalLiGt9j4gIjGDgz">⚠ 唯一的情景假设：出生率与净迁移率为推演参数，非官方预测，仅用于推演（见推演方法说明）。</div>
+</section>
+
+<!-- ======================= 与 AI 的对话 ======================= -->
+<section class="block" id="ai" data-page-node-id="OYPUhE3Kp7ligJOnb323mE">
+  <div class="sec-head" data-page-node-id="iA15roes9xBuffWBBPblVu">
+    <div class="sec-no" data-page-node-id="819fWbC0URvnbJHp8zJ4ae">板块 02</div>
+    <div class="sec-title" data-page-node-id="thxkdLYVpxahLqyPjniR8m">与 AI 一起推演 · 方向是怎么聊出来的</div>
+    <div class="sec-sub" data-page-node-id="iEJHIGyoauARiO0UtRlSvg">不止看结论，也重现场景：下面这段问答，就是三大方向被选定的过程。可以点快捷按钮提问，也可以直接输入。</div>
+  </div>
+  <div class="aiwrap" data-page-node-id="AiezByV6YfM2QAhLbh8kie">
+    <div class="aihead" data-page-node-id="5Xz52O9EK7c3b8hPAkARsy">
+      <div class="av" data-page-node-id="cRVHP6wVEw1h8UzTLFN2ES">🤖</div>
+      <div class="who" data-page-node-id="czcXEsmMEk1Wg02E0DgKJF">兰州推演助手</div>
+      <span class="tag" data-page-node-id="nObTqnI3e4Ciz7stY3pKUg">基于 25 张真实数据卡</span>
+      <span class="live" data-page-node-id="m3A81BPWc76Dt1ng5mwBlN"><i data-page-node-id="8eYyMF14r8jjbsepj8PNvD"></i>在线答复中</span>
+    </div>
+    <div class="chatbox" id="chatbox" data-page-node-id="EWtiKZCIcOsC6xh7f7VHOd"></div>
+    <div class="quick" id="quick" data-page-node-id="1H3LmwbkC5KnWbYh54z1Bm"></div>
+    <div class="askbar" data-page-node-id="odzFwONttDE5zvBo41S0mP">
+      <input id="aiq" placeholder="问点什么，比如“这三个方向为什么选它们？”…" data-page-node-id="3csUBsQgmdHKrfif2aszQc">
+      <button onclick="askQA()" data-page-node-id="BBJdyKNIQWiuT6lpJxLaB9">发送</button>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 三大发展方向 ======================= -->
+<section class="block" id="dirs" data-page-node-id="4eEHxr51h3P4nJ44lnHWZh">
+  <div class="sec-head" data-page-node-id="mOiON7MF90Ud0ni4YRtg18">
+    <div class="sec-no" data-page-node-id="veQ6HnAVHO1x6jq5IvNXJ5">板块 03</div>
+    <div class="sec-title" data-page-node-id="otCYGIgBqF5Pd3IxdU0gEp">三大发展方向 · 十年后押在哪里</div>
+    <div class="sec-sub" data-page-node-id="LCi0eoGdfpJvZDrnI1JZXe">从数据地基里长出来，按【强省会加速】主线推演到 2036。每个方向都回答三件事：<b data-page-node-id="W9AxHsRlSkqeueH3y7BheV">用了什么数据</b>、<b data-page-node-id="Q0LsKGDKkH4mZiqBCezeh3">要用什么 AI 技术</b>、<b data-page-node-id="AIe0CHhuhuyRW0SQ2wSIWo">数据怎么流动</b>。</div>
+  </div>
+
+  <div class="dirs" data-page-node-id="fZN84r1phIKRonajpYiI94">
+    <div class="dir" data-page-node-id="ZE38o2WzSuLmVpNBUkjIAr">
+      <div class="ph" data-page-node-id="ELFGjAILo3lHp3HF11j0pk"><img src="assets/city-skyline.jpg" alt="兰州城市天际线" data-page-node-id="l7QH9k2ZelN0Fg4PAJ1M0D"><div class="cap" data-page-node-id="veVTf28IEW5h7YoBFR2Fcf">黄河穿城 · 智算新城</div></div>
+      <div class="inner" data-page-node-id="t35iq6VV7HRBswT5FxAO6P">
+        <div class="no" data-page-node-id="AoLn40plkBi4NiMivJMA5D">方向 01 · 东数西算枢纽</div>
+        <h3 data-page-node-id="9eIyiegd42RmragjCKmh24">算力与数字经济</h3>
+        <div class="move" data-page-node-id="dugeEYrPOmHsCgzZP8XwXS">数字经济 <b data-page-node-id="aI2YmqwKGNRWw4VXbdWxQl">1001 亿 → 1793 亿</b> <span class="arrow" data-page-node-id="SpZTRmIjONXccD6WMclePG">·</span> 机架 <b data-page-node-id="RikoP477SFmDTw9KUQaHpB">4.9 → 24.8 万架</b></div>
+        <p data-page-node-id="iwvMoHlTAi0oOpZFMA0EjA">信息软件业增速全城第一（+15.2%），"东数西算"枢纽核心落于此地，数据中心从 32 个、4.9 万架起步加速扩张。</p>
+        <div class="q3" data-page-node-id="cePiAUwTOZHrK1Bs8iZlcp">
+          <div class="q" data-page-node-id="ekhqj90oGe1rfXryu2qUYw"><b data-page-node-id="bp9IKC7lXBagRMAwy2C4pC">用了什么数据：</b>数字经济大会口径（规模/机架/数据中心）、信息软件业增加值、电网绿电装机、骨干直联点时延。</div>
+          <div class="q" data-page-node-id="z3wL5LD6mqYskr3P7vLuD3"><b data-page-node-id="Bu90PXGFO1DIMGC56WAVus">用什么 AI 技术：</b>算力调度优化、时序预测、能耗与负荷预测模型。</div>
+          <div class="q" data-page-node-id="4H2bgXAIEACxa4NiQy9E5h"><b data-page-node-id="eixdcBprxLLlxw0dG5vJaM">数据怎么流动：</b>机房传感器实时读负载与能耗 → 汇聚到智算调度平台 → 建模预测供需与电价 → 自动分配非实时算力任务。</div>
+        </div>
+        <div class="chartbox" id="ch-suan" data-page-node-id="wzfAf24dEdIPQLCeTaHtA8"></div>
+      </div>
+    </div>
+
+    <div class="dir" data-page-node-id="rCvpnYL7kgeDE65wM4OWcm">
+      <div class="ph" data-page-node-id="QZhSV1fRomXCRsbDVXFAEQ"><img src="assets/lanzhou-noodles.jpg" alt="兰州牛肉面·烟火日常" data-page-node-id="YGgNtXJ8hyC7WJe8xZ2HKV"><div class="cap" data-page-node-id="US5AgrR4gCaeRkaNEJ2vGk">烟火气 · 幸福食堂</div></div>
+      <div class="inner" data-page-node-id="3AdLP9EQkyfGFaHEIUOFHG">
+        <div class="no" data-page-node-id="95JcLpVxoEipwm3XBKh2KA">方向 02 · 人口结构顺势</div>
+        <h3 data-page-node-id="xWJIFQEY8YEU1HRq95dKSg">银发经济与智慧养老</h3>
+        <div class="move" data-page-node-id="oEf13lbhVSev7KQCcGrEYS">规模 <b data-page-node-id="DUm7DKSnTq7RTcuekvGDfd">1800 亿 → 约 2704 亿</b> <span class="arrow" data-page-node-id="D0LuBNHmB4kf1yzfjEh7ej">·</span> 60+ 占比 <b data-page-node-id="rGdGVf5xxFmbd8d58rK0IT">23.3% → 24.7%</b></div>
+        <p data-page-node-id="rVdva9SVFwMr0qNDjolen9">60+ 已 103 万占两成三，132 个幸福食堂月供 35 万人次，医养结合 100%。顺着老年人口长大，几乎不用赌。</p>
+        <div class="q3" data-page-node-id="eOWroshtgKP4Bq9jqxG5UT">
+          <div class="q" data-page-node-id="8cwCmEJ3OtzvSJtqgGGXG5"><b data-page-node-id="krJTMTxA4cNO0ZkB6KbV0w">用了什么数据：</b>民政局 793 个养老设施库、户籍与健康档案、幸福食堂供餐量、人口队列外推的老年人口曲线。</div>
+          <div class="q" data-page-node-id="bnEymAYvsGkTqjrBz4TT1U"><b data-page-node-id="7G1u42XylfFsH4hrPzV54v">用什么 AI 技术：</b>健康风险评估、膳食/照护推荐、独居异常检测、供需匹配。</div>
+          <div class="q" data-page-node-id="xFGA6NiCBjAkR9tEcEdQbT"><b data-page-node-id="N1uEmIULx3S1A5NlGFhJbC">数据怎么流动：</b>健康档案与食堂打卡实时采集 → 平台做风险与偏好画像 → 自动生成照护/膳食建议 → 推送食堂、护工与家属。</div>
+        </div>
+        <div class="chartbox" id="ch-yf" data-page-node-id="GOKZ3GE3po9Gusd4LvMNhx"></div>
+      </div>
+    </div>
+
+    <div class="dir" data-page-node-id="xGH8uKlyCU9q87LL3KGBFh">
+      <div class="ph" data-page-node-id="X18v9UZsTiWZ7AJY3laUDE"><img src="assets/yellow-river-cruise.jpg" alt="黄河游船·夜景" data-page-node-id="jroAmH9G6SPFmGEcPBG6mX"><div class="cap" data-page-node-id="Om6JtPqT1zIsdwl4ivFZQo">夜游黄河 · 城市名片</div></div>
+      <div class="inner" data-page-node-id="zQECNeRvp4a3RKhgmqyEQl">
+        <div class="no" data-page-node-id="cI4S3YOzROKENzXeUi9Psx">方向 03 · 流量与名片</div>
+        <h3 data-page-node-id="FtjeTfkZE0ck1QrCaCIM8Q">文旅与黄河夜游</h3>
+        <div class="move" data-page-node-id="CnFLYJtIePYAhVDvGpyRFT">游客 <b data-page-node-id="0uYf4VQ5nkkos4OUBbUTfT">1.29 亿 → 1.8 亿人次</b> <span class="arrow" data-page-node-id="EgRJlztYez5FNEEV2QFwwT">·</span> 收入 <b data-page-node-id="amEO74ThcDBas5wA4cCAPZ">1000 → 约 1600 亿</b></div>
+        <p data-page-node-id="AIg7JtZrdH4acCjCNDzxFp">夜游黄河成顶流 IP，入境游客 +54.5%。增速逐渐贴近人口天花板，转向内容与体验升级、客单价提升。</p>
+        <div class="q3" data-page-node-id="mbk4aaHWSsrqoYGz4L3hrB">
+          <div class="q" data-page-node-id="OkhoFqJbDjymYJnG5OldSK"><b data-page-node-id="hCB9jrYZ5OoJHaWGn4NAT6">用了什么数据：</b>游客人次与收入公报、票务/闸机客流、入境数据、夜游时段分布、POI 与评论情感。</div>
+          <div class="q" data-page-node-id="UugkYkRkTB4pCBeRVOWT46"><b data-page-node-id="D5YpLOyb2qAiUQjiLwvud5">用什么 AI 技术：</b>客流量预测、游客画像、情感分析、路线与闸口调度优化。</div>
+          <div class="q" data-page-node-id="ZRCWRU6RKIB7jGdBtgV9Po"><b data-page-node-id="nDDgYKfHGXeYTSdWFOnmQR">数据怎么流动：</b>票务、闸机、位置实时上报 → 客流与画像平台 → 预测分流与动态定价 → 调度班次、推送餐饮与讲解。</div>
+        </div>
+        <div class="chartbox" id="ch-wl" data-page-node-id="VT3Oxb40Rbcv4AhDGfgQVY"></div>
+      </div>
+    </div>
+  </div>
+
+  <figure class="photo" data-page-node-id="vo3a7iC4T9JIWiRMH1ttN2">
+    <img src="assets/zhongshan-bridge.jpg" alt="中山桥与黄河第一桥" data-page-node-id="9y396HbYZeUbnbcw5c9dxP">
+    <figcaption data-page-node-id="ZN8WkSsj0QzzhfuHBFB1BG"><b data-page-node-id="FJJ92LZzDvIHCMO5vPdtN4">文旅的空中视角</b> · 中山桥（黄河第一桥）、白塔山与黄河游船共同组成"夜游黄河"核心动线——这三张图，正是三大方向里文旅体验落地的画面。</figcaption>
+  </figure>
+
+  <div class="note" data-page-node-id="q2WxbO3pr0PLEyt9BpBvxe">免责：三段曲线均为基于 2025 基年真实数据的趋势外推，参数见推演方法说明，非官方预测。</div>
+</section>
+
+<!-- ======================= 普通市民的一天 ======================= -->
+<section class="block" id="day" data-page-node-id="Vf46geAtu1AQt3hyfcF3eI">
+  <div class="sec-head" data-page-node-id="7QvxPQQ1X5rbxb2FajdCwa">
+    <div class="sec-no" data-page-node-id="g66nFohYyfZGpQ1FDE8m92">板块 04</div>
+    <div class="sec-title" data-page-node-id="toVRZD5uCy0Fapzibl0NFw">2036 · 普通市民的一天</div>
+    <div class="sec-sub" data-page-node-id="Dly7TfQgFNYw4yiaR45KID">把三个方向，嵌进一位普通兰州人的一天。看数据与 AI 如何悄悄进入起床、通勤、上班、归家与夜游。</div>
+  </div>
+
+  <figure class="photo" data-page-node-id="PynbQnBYJCiutUs8ybDLby">
+    <img src="assets/white-pagoda.jpg" alt="白塔山白塔" data-page-node-id="ENcrvVoZ8gTU7eP4VIU8FU">
+    <figcaption data-page-node-id="qGYrbMlsYhC0EUrfbPWgAX"><b data-page-node-id="e8HjC09aYujEGI8QDfdaD9">白塔山的清晨</b> · 兰州人的一天，从母亲河与山影里开始。</figcaption>
+  </figure>
+
+    <div class="duo">
+    <figure class="photo tall">
+      <img src="assets/wangu-tianbo.jpg" alt="古建筑牌匾">
+      <figcaption><b>老城一角</b> · 兰州老城区保存着不少古建与街巷，是"市民的一天"里被数据量化的烟火背景。</figcaption>
+    </figure>
+  </div>
+
+  <div class="dayline" data-page-node-id="k5GFg2yNWO0jsBrXBRYw2:">
+    <div class="dayrow"><div class="time">07:00</div><div><div class="what">给爸妈在“幸福食堂”点好早餐，完成用药提醒推送</div><div class="flow"><div class="fl"><span class="tag l">01 采集</span>血糖血压与用药记录当晚自动上传到银发健康平台，户籍、健康档案自动关联；</div><div class="fl"><span class="tag">02 AI 判断</span>模型按慢病曲线判断今天该几点提醒用药、早餐哪样升糖快，生成个性化建议；</div><div class="fl"><span class="tag l">03 落地</span>早餐订单直推就近食堂、提醒推给家属手机，全程老人不用自己记。</div></div></div><div class="tech">银发经济</div></div>
+    <div class="dayrow"><div class="time">09:30</div><div><div class="what">地铁进站，客流预测自动加开列车，一路不挤不堵</div><div class="flow"><div class="fl"><span class="tag l">01 采集</span>历史刷卡 + 今早实时进站量进算力平台；</div><div class="fl"><span class="tag">02 AI 判断</span>模型看到这站 09:30 进站量比常态多 18%，判断约 25 分钟后 3 号线该段要挤；</div><div class="fl"><span class="tag l">03 落地</span>调度提前加开一班车，闸机屏和 App 同步广播，通勤不排队。</div></div></div><div class="tech">算力支撑</div></div>
+    <div class="dayrow"><div class="time">14:00</div><div><div class="what">公司调用本地智算中心的渲染算力做项目，按需计费</div><div class="flow"><div class="fl"><span class="tag l">01 采集</span>机房传感器实时上报负载/温度/用电，进调度平台；</div><div class="fl"><span class="tag">02 AI 判断</span>能耗模型算出最便宜且离数据最近的空闲机柜，把任务自动分配过去；</div><div class="fl"><span class="tag l">03 落地</span>本地算力按分钟计费直连账，大文件不再跨城传，当场结清。</div></div></div><div class="tech">算力经济</div></div>
+    <div class="dayrow"><div class="time">18:30</div><div><div class="what">下班顺手预约“夜游黄河”晚间航次，系统自动分流</div><div class="flow"><div class="fl"><span class="tag l">01 采集</span>票务、闸机、岸基摄像头实时回传滨河客流；</div><div class="fl"><span class="tag">02 AI 判断</span>客流平台判断今晚热门航次可能满座，把订单自动推给相对空闲排班与靠岸时间；</div><div class="fl"><span class="tag l">03 落地</span>下单锁定靠前舱位，提醒避堵，顺手把岸上晚餐也约好。</div></div></div><div class="tech">文旅</div></div>
+    <div class="dayrow"><div class="time">20:00</div><div><div class="what">岸边自助讲解自动接上，餐饮推荐避开刚看到的拥堵</div><div class="flow"><div class="fl"><span class="tag l">01 采集</span>游客位置、照片、POI 评论实时进文旅大脑；</div><div class="fl"><span class="tag">02 AI 判断</span>情感分析识别出哪些点位挤/体验差，顺带给游客讲脚下这段黄河的历史；</div><div class="fl"><span class="tag l">03 落地</span>导航把你挪到刚空出的少排队通道，同时推一条最近不绕路的晚餐路线。</div></div></div><div class="tech">文旅 + 算力</div></div>
+  </div>
+</section>
+
+<!-- ======================= 风险与挑战 ======================= -->
+<section class="block" id="risk" data-page-node-id="nDq9WsJRM4EQCpspwjIFs6">
+  <div class="sec-head" data-page-node-id="Tu9MVXZG84KF8kCPuUbEh1">
+    <div class="sec-no" data-page-node-id="6fo63jinDc1Ert7yyic6l2">板块 05</div>
+    <div class="sec-title" data-page-node-id="zLyNQMMpnFiCyMqJdrEx8D">风险与挑战 · 冷静看待十年</div>
+    <div class="sec-sub" data-page-node-id="j9R95E08rDVWqcwwLC0g5x">推演不是承诺。每一个方向都有绕不开的风险，也都配上了缓解路径。</div>
+  </div>
+  <div class="risks" data-page-node-id="a7h31FsLsNuGNlsLeVocDi">
+    <div class="risk" data-page-node-id="uH0MsfBljgRf7zzzIvv1RB">
+      <div class="nm" data-page-node-id="UFrJC1wLdZd2UYTN8sl49v">数据隐私</div>
+      <p data-page-node-id="VIEB5C1ZxyqP0BBAkJgJFN">健康档案、票务、客流等大量个人数据集中流转，一旦泄露或被滥用，后果叠加且难以追责。更隐蔽的是，数据在多个系统间传导时，边界容易模糊——食堂点餐、慢病档案、医保等被同一平台打通后，谁能看、能看到多少，普通市民很难说清，也很难拒绝授权。</p>
+      <p data-page-node-id="XkQ9n6VtM2eDqr0NZhxGd">只要其中一环失守，比如机房老鼠或运维权限外泄，可能一次就让成千上万人的健康与行踪暴露，且责任散落在开发商、运营方与外包商之间，追责往往不了了之。</p>
+      <div class="short" data-page-node-id="pw1xFb86eD5BPw4T2FN2VQ">缓解：最小化采集 · 匿名化 · 知情同意 · 分级授权 · 有权下线删除</div>
+    </div>
+    <div class="risk" data-page-node-id="Mc3bB336hL6yO70HddtkVJ">
+      <div class="nm" data-page-node-id="Ey1EtkCeGaja5QHkAhsz89">算法偏见</div>
+      <p data-page-node-id="m4ZGMn9EkB2jm6U3e2Jksw">老年、低收入等边缘群体，可能在服务推荐与资源分配中被数据稀疏与模型偏差所忽略。数据里"看不清楚"的人群往往最需要照顾——他们外卖、定位、评论都少，样本不足，模型就猜不准。</p>
+      <p data-page-node-id="XkQ9n6VMk1eDqr0OZhxHa">久而久之容易形成"越被服务越被服务、越被忽略越被忽略"的循环，智能反而把公共服务原有的落差放大。</p>
+      <div class="short" data-page-node-id="7YCNyLCpIFCW3xLtIRYyoz">缓解：数据反偏见 · 第三方审计 · 人工复核 · 保障兜底线</div>
+    </div>
+    <div class="risk" data-page-node-id="J8W8chTmH7tNFtt3JAKPSk">
+      <div class="nm" data-page-node-id="uaofEOrmsDCzkB4vWV7zZq">技术依赖</div>
+      <p data-page-node-id="v84zUzkPcCH24vbrlzmVpq">一座城市的运行过度依赖算力与网络，一旦中断，医疗、通勤、文旅等环节牵一发动全身。停电、断网、机房故障这类小概率事件，在城市高度数字化后会成倍放大。</p>
+      <p data-page-node-id="KkR1p1hM4eDqr0BaJzYbq">更令人担心的是"系统瘫痪就没人会做"：人工兜底流程越来越生疏，一旦机器靠不住，连最简单的排班、挂号和调度都可能卡壳。</p>
+      <div class="short" data-page-node-id="9b52RBNgBKGeQKvZXJmIzf">缓解：冗余灾备 · 多活架构 · 人工兜底流程 · 定期压力演练</div>
+    </div>
+  </div>
+</section>
+
+<footer data-page-node-id="eheiws97eBPBS8ryCGQton">兰州 · 2026 → 2036 · 数据与 AI 推演报告 · <b data-page-node-id="sw0cZyCxOsx5q86MFoIBfB">本页数据均可溯源</b><br data-page-node-id="qShzkan3duHmwzXCRUtvyp"><span style="font-size:11px;color:#9a968c" data-page-node-id="DcdE43hT27AfTSx7Fw11NK">配图来自公开社交平台实拍，已去除水印，仅作示意。</span></footer>
+
+<script>
+/* =================== 数据卡全集（明细表用） =================== */
+var CARDS=[
+  {ind:"常住人口",val:"445.14 万",c:"年末常住，城镇384.45万/乡村60.69万，+1.49万",src:"统计局·2025公报",conf:"高",use:"人口队列外推基准"},
+  {ind:"城镇化率",val:"86.37%",c:"比上年+0.54个百分点",src:"统计局",conf:"高",use:"空间扩张"},
+  {ind:"出生/死亡/自然增长率",val:"4.34‰/8.38‰/−4.04‰",c:"出生1.93万、死亡3.72万；负增长较上年扩大",src:"统计局",conf:"高",use:"分年龄推移核心参数"},
+  {ind:"60+ 占比",val:"23.32%",c:"60+人口103.80万；65+ 74.91万（16.83%）",src:"统计局/民政局",conf:"高",use:"银发经济人口基础"},
+  {ind:"GDP",val:"3903.61 亿",c:"+5.5%；人均87841元",src:"统计局",conf:"高",use:"经济总量外推"},
+  {ind:"三次产业结构",val:"1.93∶32.5∶65.6",c:"一产75.29/二产1269/三产2559亿",src:"统计局",conf:"高",use:"产业转型起点"},
+  {ind:"规上工业增速",val:"+8.7%",c:"重工业+10.9%；利润105.9亿",src:"统计局",conf:"高",use:"增长动力识别"},
+  {ind:"信息软件业增速",val:"+15.2%",c:"增加值85.14亿，服务业居前",src:"统计局",conf:"高",use:"算力/AI方向依据"},
+  {ind:"旅游接待/收入",val:"1.29亿/1000.12亿",c:"入境10.23万人次+54.5%",src:"统计局",conf:"高",use:"文旅方向核心"},
+  {ind:"发电装机",val:"1043.2 万kW",c:"+25.7%；并网光伏+47%",src:"统计局",conf:"高",use:"绿电供给算力"},
+  {ind:"快递业务量",val:"2.13 亿件",c:"+25.3%",src:"统计局",conf:"高",use:"通道经济旁证"},
+  {ind:"养老设施",val:"793 个",c:"幸福食堂132个·月供35万人次",src:"民政局",conf:"高",use:"银发承接载体"},
+  {ind:"建成区面积",val:"417.3 km²",c:"区划调整后由357.7扩至417.3",src:"政府工作报告",conf:"中高",use:"空间扩张底图"},
+  {ind:"空气质量优良",val:"312 天",c:"优良率85.5%；剔除沙尘94%",src:"生态环境公报",conf:"高",use:"生态宜居底色"},
+  {ind:"PM2.5 年均",val:"34.88",c:"−6.2%，达国家二级标准",src:"生态环境局",conf:"高",use:"污染治理阈值"},
+  {ind:"黄河水质",val:"100%",c:"国控省控断面100%；干流Ⅱ类",src:"生态环境局",conf:"高",use:"生态观测已达高位"},
+  {ind:"水质自动监测站",val:"19 座",c:"智慧黄河平台24h监测",src:"生态环境局/市政府",conf:"中高",use:"生态AI实时数据"},
+  {ind:"轨道交通客流",val:"约40万人次/日",c:"1、2号线并网",src:"政府工作报告",conf:"中高",use:"文旅串联/AFC数据"},
+  {ind:"5G基站/移动基站",val:"2.32万/5.71万",c:"5G用户429万户",src:"统计局",conf:"高",use:"数字基础设施底座"},
+  {ind:"人均公园绿地",val:"12.2 m²",c:"两山绿化62万亩",src:"政府工作报告",conf:"中高",use:"宜居/公园场景"},
+  {ind:"数字经济规模",val:"1001 亿",c:"2024年口径；百强市第55位",src:"数字经济大会",conf:"中",use:"算力总量基础"},
+  {ind:"数据中心/机架",val:"32个/4.9万架",c:"新区2.3万架·可提供85万核",src:"数字经济大会/新区",conf:"中高",use:"算力核心承载力"},
+  {ind:"东数西算枢纽",val:"8大枢纽双核心之一",c:"骨干直联点时延−83.7%",src:"工信局/通管局",conf:"中高",use:"算力产业逻辑"},
+  {ind:"国际货运班列",val:"1118列",c:"通22国；货值29.12亿美元",src:"政府工作报告",conf:"中高",use:"通道经济补充"},
+  {ind:"5G/应用客流",val:"派生数据",c:"迁徙/评论/POI/外卖等辅助验证",src:"拟AI推理",conf:"低",use:"社交位置旁证"}
+];
+(function(){
+  var tb=document.getElementById('cardRows');var h='';
+  for(var i=0;i<CARDS.length;i++){
+    var c=CARDS[i];
+    var conf=c.conf==='高'?'<span class="badge h">高</span>':(c.conf==='中高'?'<span class="badge h">中高</span>':'<span class="badge m">中</span>');
+    h+='<tr><td class="ind">'+c.ind+'</td><td class="val">'+c.val+'</td><td>'+c.c+'</td><td>'+c.src+'</td><td class="conf">'+conf+'</td><td>'+c.use+'</td></tr>';
+  }
+  tb.innerHTML=h;
+})();
+
+/* =================== 柱状图数据与渲染 =================== */
+var YRS=[2026,2027,2028,2029,2030,2031,2032,2033,2034,2035,2036];
+/* ---- 双序列柱状图（左轴/右轴各一，各自已的刻度，同一年左右并排两根柱） ---- */
+function duoBar(el,o){
+  var W=560,H=232,P=48,pad=10,pw=W-P-pad*2,BH=H-46;
+  var la=o.L.arr,ra=o.R.arr,n=la.length;
+  var lLo=o.lLo!==undefined?o.lLo:Math.min.apply(null,la)*0.85;
+  var lHi=o.lHi!==undefined?o.lHi:Math.max.apply(null,la)*1.08;
+  var rLo=o.rLo!==undefined?o.rLo:Math.min.apply(null,ra)*0.85;
+  var rHi=o.rHi!==undefined?o.rHi:Math.max.apply(null,ra)*1.08;
+  var lSpan=(lHi-lLo)||1, rSpan=(rHi-rLo)||1;
+  var colW=pw/n, barW=Math.min(colW*0.3,12);
+  function ly(v){ return H-26-(BH*((v-lLo)/lSpan)); }
+  function ry(v){ return H-26-(BH*((v-rLo)/rSpan)); }
+  function fmtAxis(v){ if(Math.abs(v)>=10000) return (Math.round(v/1000))+'k'; return Math.round(v).toLocaleString(); }
+  var s='<svg width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'" style="width:100%;height:auto">';
+  /* 左轴网格与刻度 */
+  for(var g=0;g<=4;g++){
+    var gy=P+(BH*(g/4));
+    s+='<line x1="'+P+'" y1="'+gy.toFixed(1)+'" x2="'+(W-pad)+'" y2="'+gy.toFixed(1)+'" stroke="#e9e6dd" stroke-width="1"/>';
+    var tv=lLo+lSpan*(1-g/4);
+    s+='<text x="'+(P-6)+'" y="'+(gy+4)+'" font-size="10.5" fill="#8b877e" text-anchor="end">'+fmtAxis(Math.round(tv))+'</text>';
+  }
+  /* 右轴刻度 */
+  for(var g2=0;g2<=3;g2++){
+    var gy2=H-26-(BH*(g2/3));
+    var tv2=rLo+rSpan*(g2/3);
+    s+='<text x="'+(W-pad+6)+'" y="'+(gy2+4)+'" font-size="9.5" fill="#0f7a5f" text-anchor="start">'+(Math.round(tv2/10)*10)+'</text>';
+  }
+  /* 柱 */
+  for(var i=0;i<n;i++){
+    var cx=P+(colW*i)+colW/2;
+    /* 左序列柱 */
+    var yl=ly(la[i]);
+    s+='<rect x="'+(cx-barW-1).toFixed(1)+'" y="'+yl.toFixed(1)+'" width="'+barW.toFixed(1)+'" height="'+(H-26-yl).toFixed(1)+'" rx="2" fill="'+o.L.color+'"/>';
+    s+='<text x="'+(cx-barW-1).toFixed(1)+'" y="'+(yl-4)+'" font-size="9" fill="'+o.L.color+'" font-weight="700" text-anchor="middle">'+Math.round(la[i]).toLocaleString()+'</text>';
+    /* 右序列柱 */
+    var yr=ry(ra[i]);
+    s+='<rect x="'+(cx+1).toFixed(1)+'" y="'+yr.toFixed(1)+'" width="'+barW.toFixed(1)+'" height="'+(H-26-yr).toFixed(1)+'" rx="2" fill="'+o.R.color+'" opacity="0.92"/>';
+    s+='<text x="'+(cx+1+barW/2).toFixed(1)+'" y="'+(yr-4)+'" font-size="10" fill="'+o.R.color+'" font-weight="700" text-anchor="middle">'+Math.round(ra[i])+'</text>';
+    /* 年份 */
+    if(YRS[i]%2===0||i===n-1){
+      s+='<text x="'+cx.toFixed(1)+'" y="'+(H-8)+'" font-size="10" fill="#6b675e" text-anchor="middle">'+YRS[i]+'</text>';
+    }
+  }
+  /* 图例 */
+  s+='<rect x="'+P+'" y="'+8+'" width="10" height="10" rx="2" fill="'+o.L.color+'"/><text x="'+(P+14)+'" y="'+17+'" font-size="10.5" fill="'+o.L.color+'">'+o.L.name+'（左轴）</text>';
+  s+='<rect x="'+(P+150)+'" y="'+8+'" width="10" height="10" rx="2" fill="'+o.R.color+'"/><text x="'+(P+164)+'" y="'+17+'" font-size="10.5" fill="'+o.R.color+'">'+o.R.name+'（右轴）</text>';
+  s+='</svg>';
+  document.getElementById(el).innerHTML=s;
+}
+/* ---- 单序列柱状图 ---- */
+function singleBar(el,d){
+  var W=560,H=240,P=48,pad=12,pw=W-P-pad*2,BH=H-46;
+  var arr=d.arr,n=arr.length;
+  var lo=d.min!==undefined?d.min:Math.min.apply(null,arr)*0.8;
+  var hi=d.max!==undefined?d.max:Math.max.apply(null,arr)*1.1;
+  var span=(hi-lo)||1;
+  var colW=pw/n, barW=Math.min(colW*0.58,26);
+  function y(v){ return H-26-(BH*((v-lo)/span)); }
+  var s='<svg width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'" style="width:100%;height:auto">';
+  for(var g=0;g<=4;g++){
+    var gy=H-26-(BH*(g/4));
+    s+='<line x1="'+P+'" y1="'+gy.toFixed(1)+'" x2="'+(W-pad)+'" y2="'+gy.toFixed(1)+'" stroke="#e9e6dd" stroke-width="1"/>';
+    var tv=lo+span*(g/4);
+    s+='<text x="'+(P-6)+'" y="'+(H-26-(BH*(g/4))+4)+'" font-size="10.5" fill="#88987e" text-anchor="end">'+(Math.round(tv)).toLocaleString()+'</text>';
+  }
+  for(var i=0;i<n;i++){
+    var cx=P+(colW*i)+colW/2;
+    var yy=y(arr[i]);
+    s+='<rect x="'+(cx-barW/2).toFixed(1)+'" y="'+yy.toFixed(1)+'" width="'+barW.toFixed(1)+'" height="'+(H-26-yy).toFixed(1)+'" rx="3" fill="'+d.color+'"/>';
+    s+='<text x="'+cx.toFixed(1)+'" y="'+(yy-5)+'" font-size="10.5" fill="'+d.color+'" font-weight="700" text-anchor="middle">'+Math.round(arr[i]).toLocaleString()+'</text>';
+    if(YRS[i]%2===0||i===n-1){ s+='<text x="'+cx.toFixed(1)+'" y="'+(H-8)+'" font-size="10" fill="#6b675e" text-anchor="middle">'+YRS[i]+'</text>'; }
+  }
+  s+='<rect x="'+P+'" y="8" width="10" height="10" rx="2" fill="'+d.color+'"/><text x="'+(P+14)+'" y="17" font-size="11" fill="#6b675e">'+d.name+'</text>';
+  s+='</svg>';
+  document.getElementById(el).innerHTML=s;
+}
+/* ---- 渲染入口 ---- */
+duoBar('ch-suan',{
+  L:{name:'数字经济规模',color:'#14426b',arr:[1001,1143,1283,1414,1531,1627,1697,1738,1746,1720,1793]},
+  R:{name:'数据中心机架',color:'#0f7a5f',arr:[5,6,7,8,10,12,14,17,20,23,25]},
+  lLo:800,lHi:2000,rLo:0,rHi:28
+});
+singleBar('ch-yf',{name:'银发经济规模(亿元)',color:'#0f7a5f',min:1500,max:3000,arr:[1800,1852,1928,2024,2141,2212,2293,2382,2482,2590,2704]});
+duoBar('ch-wl',{
+  L:{name:'游客(万人次)',color:'#14426b',arr:[12900,14600,16200,17300,18100,18600,18900,18900,18700,18400,18029]},
+  R:{name:'旅游收入(亿元)',color:'#0f7a5f',arr:[1000,1150,1330,1470,1560,1620,1650,1630,1600,1570,1542]},
+  lLo:12000,lHi:20000,rLo:900,rHi:1700
+});
+
+/* =================== 与 AI 的对话交互 =================== */
+var OPEN=[
+  {who:'u',t:'这十年，AI 和大数据最该押兰州哪三块？先用数据里的真东西说。'},
+  {who:'a',t:'我把候选端出来，每块都用真数据喂饱：<b>算力经济</b>（数字经济已 1001 亿、机架 4.9 万架、东数西算枢纽）、<b>银发经济</b>（60+ 已 103 万占 23%，幸福食堂月供 35 万人次）、<b>文旅夜游</b>（游客 1.29 亿人次、入境 +54%）。'},
+  {who:'u',t:'剩下那五个为什么不要？'}
+];
+var QUICK=[
+  {ic:'🧭',q:'这三个方向为什么选它们？'},
+  {ic:'🔬',q:'这些数据真的可信吗？'},
+  {ic:'🧰',q:'拿到数据后怎么用？'},
+  {ic:'🎲',q:'十年推演是不是瞎猜？'},
+  {ic:'📉',q:'人口十年后会怎样？'},
+  {ic:'💰',q:'三个方向能到多少？'},
+  {ic:'⚠️',q:'最大的风险是什么？'}
+];
+var BRAIN=[
+  {k:['为什么','凭什么','选','三块','方向'],a:'选它们，是因为都落在"老百姓的一天里"。<b>算力</b>——数字经济已过千亿、还在涨，数据中心机架 4.9 万架，是东数西算枢纽核心；<b>银发</b>——60+ 已 103 万占 23%，幸福食堂月供 35 万人次，医养结合 100%；<b>文旅</b>——游客 1.29 亿人次、收入 1000 亿、入境 +54%。没选的五个各有硬伤：通道物流只讲过境、生态治理是守成、轨道低空只是载体、都市农业数据太稀、智慧政务口径不公开。',p:'数据卡：官方统计(人口/GDP/三产)、社交算力(数字经济/游客)、遥感(空气/水质) —— 每一条都能溯源。'},
+  {k:['可信','真','核实','校验','真实','来源','假','可靠','怎么证明','交叉'],a:'不靠一条，靠<b>交叉</b>：同一个指标找两个独立来源互证——比如空气质量，统计公报 <b>312 天</b> 和环保监测站数据对得上；数字经济 <b>1001 亿</b>，市政府"数字经济大会"口径与《统计公报》一致。死链、媒体转载、口径含糊的，一律换官方源或剔除。然后给每条标<b>置信度</b>：人口/GDP/三产是高置信，派生数据(爬评论、迁徙)标"中"，只用来旁证不强推。这张表人人可查。<b>能用、敢引用、讲得清出处，才算真实可用。</b>',p:'置信度逐条见「数据地基」25 张卡表；每类一条官方总出处可点开。'},
+  {k:['怎么用','怎么处理','拿到','整理','用这些数据','怎么派','做什么'],a:'拿到手先干三件事——<b>当基准、当依据、当校验</b>。当基准：常住人口 445.14 万、GDP 3903.61 亿，是大盘，往后十年所有推演都从它起步；当依据：数字经济 1001 亿+机架 4.9 万，才让我敢把算力列为方向；当校验：生态方向我用 312 天好空气去核，数据撑得起的才留。每个方向右下都标了 <b>"用于推演"</b>，讲的是这块数据在推演里到底起了什么作用。',p:'数据卡的「用于推演」列标注了每张卡的用途，见数据基础明细表。'},
+  {k:['瞎猜','瞎','猜','假设','不准','可靠','确定性','怎么算的','复现'],a:'承认这是<b>基于真数的趋势外推，不是预测</b>。只有一处是"假设"：出生率、净迁移当参数设，不是官方预测。所以我给的是三条路、不是一个点——人口三情景（延续约 402 万 / 加速约 445 万 / 收缩约 364 万），三方向也是区间曲线而非"铁定到多少"。跑法可复现、参数可查，老师要看随时能重算。',p:'推演方法说明：人口队列外推 + 三方向趋势，参数与假设全部留档。'},
+  {k:['人口','养老','老年','老化'],a:'拿 2025 年的 <b>445.14 万</b> 按年龄一层层往未来带，挑三种假设跑出三条路：延续型 2036 剩约 402 万、加速型稳在约 445 万、收缩型约 364 万。<b>不管走哪条，兰州十年后都老定了</b>——这就是银发经济被选中的底层原因。',p:'推演来源：人口队列外推引擎(强省会加速主线)，基于 2025 基年真实数据。'},
+  {k:['多少','亿','规模','结果','钱'],a:'按强省会加速主线，2036 摊开：<b>算力</b>——数字经济 1001→1793 亿、机架 4.9→24.8 万架；<b>银发</b>——1800→约 2700 亿；<b>文旅</b>——游客 1.29→1.8 亿人次、收入 1000→约 1600 亿。曲线都在下方三大方向板块。',p:'参数：加速情景人口回灌 + 三方向趋势外推，非官方预测。'},
+  {k:['风险','挑战','担忧','怕'],a:'最绕不开的是 <b>数据隐私</b>（健康、票务、客流大量个人数据）、<b>算法偏见</b>（老年等群体可能在推荐中被忽略）、<b>技术依赖</b>（城市运行过度依赖算力网络）。每一条都配了缓解：匿名化、反偏见审计、冗余灾备。',p:'完整内容见「风险与挑战」板块。'},
+  {k:['一天','市民','生活'],a:'十年后，一位普通兰州人：早上在幸福食堂给爸妈点早餐、地铁自动加开不堵、下午公司用本地智算算力、晚上预约夜游黄河，岸上讲解和餐饮推荐自动避开拥堵。<b>三个方向，就这样嵌进了普通的一天。</b>',p:'完整时间线见「普通市民的一天」板块。'},
+  {k:['基年','2025','真实','数据','来源','出处'],a:'基年锁定 <b>2025</b>：常住人口 445.14 万、GDP 3903.61 亿。数据分三层共 25 张可溯源卡——官方统计(2025 公报/政府工作报告/民政局)、遥感与传感器(空气/水质/客流)、位置与算力(游客/机架)。每一条都对得到出处。',p:'主来源：2025 统计公报 · 2025 生态环境公报 · 数字经济大会口径'},
+  {k:[],a:'这个问题可以展开到下方对应板块看。想让我往某块多说，点上方的快捷按钮更快。'}
+];
+function addMsg(who,html){
+  var box=document.getElementById('chatbox');
+  var m=document.createElement('div');m.className='mmsg '+who;
+  m.innerHTML='<div class="who">'+(who==='user'?'我们小组':'兰州推演助手')+'</div><div class="bub">'+html+'</div>';
+  box.appendChild(m);box.scrollTop=box.scrollHeight;
+  return m;
+}
+function addProof(m,text){
+  var pr=document.createElement('div');pr.className='proof';pr.textContent='↳ 数据证据';
+  var body=document.createElement('div');body.className='proofbody';body.textContent=text;
+  pr.onclick=function(){ body.classList.toggle('open'); };
+  m.querySelector('.bub').appendChild(pr);m.querySelector('.bub').appendChild(body);
+}
+function addTyping(cb){
+  var m=document.createElement('div');m.className='mmsg ai';
+  m.innerHTML='<div class="who">兰州推演助手</div><div class="bub"><span class="typing"><i></i><i></i><i></i></span></div>';
+  var box=document.getElementById('chatbox');box.appendChild(m);box.scrollTop=box.scrollHeight;
+  setTimeout(function(){ cb(m); }, 650);
+}
+var oi=0;
+function playOpen(){
+  if(oi>=OPEN.length){ renderQuick(); return; }
+  var d=OPEN[oi++];
+  if(d.who==='u'){ addMsg('user',d.t); playOpen(); }
+  else {
+    addTyping(function(m){
+      m.querySelector('.bub').innerHTML=d.t;
+      addProof(m,'数据证据：方向候选均基于 25 张数据卡');
+      playOpen();
+    });
+  }
+}
+function renderQuick(){
+  var qd=document.getElementById('quick');qd.innerHTML='';
+  QUICK.forEach(function(q){
+    var b=document.createElement('button');b.className='qbtn';
+    b.innerHTML='<span class="ic">'+q.ic+'</span>'+q.q;
+    b.onclick=function(){ askQA(q.q); };
+    qd.appendChild(b);
+  });
+}
+function askQA(qtxt){
+  var q=(qtxt||'').trim();
+  if(!q){ var input=document.getElementById('aiq'); q=input?input.value.trim():''; }
+  if(!q) return;
+  addMsg('user',q);
+  var input=document.getElementById('aiq'); if(input) input.value='';
+  addTyping(function(m){
+    var ans=matchBrain(q);
+    m.querySelector('.bub').innerHTML=ans.a;
+    if(ans.p) addProof(m,ans.p);
+    m.querySelector('.bub').appendChild(htmlSkipDirs());
+  });
+}
+function matchBrain(q){
+  for(var i=0;i<BRAIN.length;i++){
+    var hit=BRAIN[i].k.some(function(kw){ return q.indexOf(kw)>=0; });
+    if(hit) return BRAIN[i];
+  }
+  return BRAIN[BRAIN.length-1];
+}
+function htmlSkipDirs(){
+  var d=document.createElement('div');d.className='proofbody open';
+  d.style.display='block';
+  d.innerHTML='问更多？在输入框试试，或到下方 <b>三大方向</b> 与 <b>市民的一天</b> 板块看完整图景。';
+  return d;
+}
+function initAsk(){
+  var input=document.getElementById('aiq');
+  if(input){ input.addEventListener('keydown',function(e){ if(e.key==='Enter') askQA(); }); }
+  setTimeout(playOpen, 500);
+}
+initAsk();
+
+/* ===== 等比缩放：整页按窗口宽度等比铺满 ===== */
+(function(){
+  var base=1180;          // 页面设计基准宽度（与 section.block max-width 一致）
+  var min=60, max=220;    // 缩放范围 % 
+  var zoom=100, fitZoom=null;
+  var bar=document.getElementById('zoombar');
+  var label=document.getElementById('zlabel');
+  function apply(){
+    if(!('zoom' in document.body.style)) return;   // 非 Chrome/Edge 降级为不缩放
+    document.body.style.zoom=(zoom/100);
+    label.textContent=Math.round(zoom)+'%';
+    label.setAttribute('title','页面宽度已等比放大至 '+Math.round(zoom)+'%');
+  }
+  function fitW(){
+    zoom=Math.round((window.innerWidth-24)/base*100);
+    if(zoom<min) zoom=min;
+    if(zoom>max) zoom=max;
+    apply();
+  }
+  bar.addEventListener('click',function(e){
+    var b=e.target;
+    if(b.id==='zfit'){ fitMode=true; fitW(); return; }
+    var step=parseInt(b.getAttribute('data-z'),10);
+    if(step){ fitMode=false; zoom=Math.max(min,Math.min(max,zoom+step)); apply(); }
+  });
+  window.addEventListener('resize',function(){ if(fitMode) fitW(); });
+  function fit(){ fitW(); }      // 别名，供初始调用
+  var fitMode=true;
+  fitW();              // 一打开即按窗口宽度等比铺满
+})();
+</script>
+</body>
+</html>
